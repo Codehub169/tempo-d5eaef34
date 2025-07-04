@@ -8,16 +8,16 @@
     <style>
         /* Global CSS */
         :root {
-            --primary-color: #0F4C81; /* Deep Ocean Blue */
-            --secondary-color: #6C757D; /* Standard Grey */
-            --accent-color: #2E8B57; /* Sea Green for CTAs/Success */
-            --background-light: #F8F9FA; /* Off-white */
-            --text-dark: #333333; /* Dark Charcoal */
+            --primary-color: #006064; /* Deep Teal */
+            --secondary-color: #4A6572; /* Muted Blue-Grey */
+            --accent-color: #8BC34A; /* Lime Green */
+            --background-light: #F2F4F7; /* Light Off-White */
+            --text-dark: #263238; /* Charcoal Black */
             --text-light: #FFFFFF;
-            --border-color: #DDE4E9; /* Lighter, subtle border */
-            --shadow-light: rgba(15, 76, 129, 0.08); /* Shadow tinted with primary */
-            --shadow-medium: rgba(15, 76, 129, 0.15);
-            --shadow-strong: rgba(15, 76, 129, 0.25);
+            --border-color: #D0D7DE; /* Light Grey */
+            --shadow-light: rgba(0, 96, 100, 0.08); /* Shadow tinted with primary */
+            --shadow-medium: rgba(0, 96, 100, 0.15);
+            --shadow-strong: rgba(0, 96, 100, 0.25);
             --transition-speed: 0.3s;
         }
 
@@ -413,8 +413,7 @@
         body.high-contrast .btn-primary {
             background-color: #00ffff !important;
             color: #000 !important;
-            border-color: #00ffff !n
-            important;
+            border-color: #00ffff !important;
         }
         body.high-contrast .btn-primary:hover {
             background-color: transparent !important;
@@ -439,7 +438,7 @@
 
         /* Page Specific Styles for Contact Us */
         .page-hero {
-            background: linear-gradient(rgba(15, 76, 129, 0.8), rgba(15, 76, 129, 0.8)), url('https://images.unsplash.com/photo-1549490212-f0451a44c9b9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 96, 100, 0.8), rgba(0, 96, 100, 0.8)), url('https://images.unsplash.com/photo-1549490212-f0451a44c9b9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
             color: var(--text-light);
             text-align: center;
             padding: 6rem 2rem;
@@ -579,13 +578,8 @@
         .form-group select:focus,
         .form-group textarea:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.25);
+            box-shadow: 0 0 0 3px rgba(0, 96, 100, 0.25);
             outline: none;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
         }
 
         .form-group.error input,
