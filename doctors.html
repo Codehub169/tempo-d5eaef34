@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionary Eye Care - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Global CSS */
+        :root {
+            --primary-color: #006064; /* Deep Teal */
+            --secondary-color: #4A6572; /* Muted Blue-Grey */
+            --accent-color: #8BC34A; /* Lime Green */
+            --background-light: #F2F4F7; /* Light Off-White */
+            --text-dark: #263238; /* Charcoal Black */
+            --text-light: #FFFFFF;
+            --border-color: #D0D7DE; /* Light Grey */
+            --shadow-light: rgba(0, 96, 100, 0.08); /* Shadow tinted with primary */
+            --shadow-medium: rgba(0, 96, 100, 0.15);
+            --shadow-strong: rgba(0, 96, 100, 0.25);
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+            font-size: 16px; /* Base font size for accessibility */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; }
+        h3 { font-size: 2.2rem; }
+        h4 { font-size: 1.8rem; }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color var(--transition-speed) ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all var(--transition-speed) ease;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--text-light);
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: width var(--transition-speed) ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: var(--primary-color);
+            margin-bottom: 4px;
+            border-radius: 5px;
+            transition: all var(--transition-speed) ease;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: left;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animated {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0; /* Hidden by default, will be revealed by JS */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.4rem; }
+            h3 { font-size: 1.9rem; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--text-light);
+                position: absolute;
+                top: 80px; /* Adjust based on header height */
+                left: 0;
+                padding: 1rem 0;
+                box-shadow: var(--shadow-medium);
+                border-top: 1px solid var(--border-color);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 1rem;
+                display: block;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section {
+                min-width: unset;
+                width: 100%;
+            }
+
+            .social-icons {
+                margin-top: 1rem;
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.7rem; }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Accessibility Toggle */
+        .accessibility-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-medium);
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .accessibility-toggle:hover {
+            background-color: var(--accent-color);
+        }
+
+        .accessibility-panel {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: var(--text-light);
+            border-radius: 8px;
+            box-shadow: var(--shadow-medium);
+            padding: 1rem;
+            z-index: 1000;
+            flex-direction: column;
+            gap: 0.8rem;
+            min-width: 200px;
+        }
+
+        .accessibility-panel.active {
+            display: flex;
+        }
+
+        .accessibility-panel button {
+            background-color: var(--background-light);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .accessibility-panel button:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        /* High Contrast Mode */
+        body.high-contrast {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+        body.high-contrast h1, body.high-contrast h2, body.high-contrast h3, body.high-contrast h4, body.high-contrast h5, body.high-contrast h6, body.high-contrast .logo {
+            color: #ffff00 !important; /* Bright yellow for contrast */
+        }
+        body.high-contrast a, body.high-contrast .btn-secondary {
+            color: #00ffff !important; /* Cyan for links */
+            border-color: #00ffff !important;
+        }
+        body.high-contrast header, body.high-contrast .accessibility-panel {
+            background-color: #333 !important;
+            box-shadow: none !important;
+            border-color: #666 !important;
+        }
+        body.high-contrast .btn-primary {
+            background-color: #00ffff !important;
+            color: #000 !important;
+            border-color: #00ffff !important;
+        }
+        body.high-contrast .btn-primary:hover {
+            background-color: transparent !important;
+            color: #00ffff !important;
+        }
+        body.high-contrast .accessibility-panel button {
+            background-color: #555 !important;
+            color: #fff !important;
+            border-color: #888 !important;
+        }
+        body.high-contrast .accessibility-panel button:hover {
+            background-color: #00ffff !important;
+            color: #000 !important;
+        }
+        body.high-contrast footer {
+            background-color: #222 !important;
+            border-top-color: #555 !important;
+        }
+        body.high-contrast .nav-links a::after {
+            background-color: #00ffff !important;
+        }
+
+        /* Page Specific Styles for Home */
+        .hero {
+            background: linear-gradient(rgba(0, 96, 100, 0.8), rgba(0, 96, 100, 0.8)), url('https://images.unsplash.com/photo-1579684385153-f7267794354b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 8rem 2rem;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            color: var(--text-light);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .about-us-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .about-us-content {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .about-us-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-us-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .service-card {
+            background-color: var(--text-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { font-size: 1.1rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 1.5rem;
+            }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1rem; }
+            .about-us-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-us-image img {
+                margin-top: 1.5rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-card {
+                padding: 1.5rem;
+            }
+            .service-card h3 {
+                font-size: 1.6rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Visionary Eye Care</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Our Doctors</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+                <li><a href="faq.html">Resources</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero animated">
+            <h1>Clear Vision, Brighter Future.</h1>
+            <p>Experience world-class eye care with a personal touch. Your vision is our priority.</p>
+            <a href="appointment.html" class="btn btn-primary animated" style="animation-delay: 0.5s;">Book An Appointment</a>
+        </section>
+
+        <section class="container" style="padding-top: 4rem;">
+            <h2 class="section-title animated">About Visionary Eye Care</h2>
+            <div class="about-us-section">
+                <div class="about-us-content animated" style="animation-delay: 0.2s;">
+                    <p>At Visionary Eye Care, we are committed to providing comprehensive and compassionate eye health services to our community. With state-of-the-art technology and a team of experienced professionals, we ensure the highest standard of care for every patient.</p>
+                    <p>From routine eye exams and contact lens fittings to advanced diagnosis and treatment of eye diseases, we cover all aspects of your vision needs. Our goal is to help you achieve and maintain optimal eye health for a lifetime.</p>
+                    <a href="services.html" class="btn btn-secondary" style="margin-top: 1.5rem;">Learn More About Us</a>
+                </div>
+                <div class="about-us-image animated" style="animation-delay: 0.4s;">
+                    <img src="https://images.unsplash.com/photo-1581093158485-a7b21235b2e1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Eye care professional examining a patient">
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title animated">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card animated" style="animation-delay: 0.2s;">
+                    <i class="fas fa-glasses"></i>
+                    <h3>Comprehensive Eye Exams</h3>
+                    <p>Thorough evaluations to assess your vision and overall eye health.</p>
+                </div>
+                <div class="service-card animated" style="animation-delay: 0.4s;">
+                    <i class="fas fa-eye"></i>
+                    <h3>Contact Lens Fittings</h3>
+                    <p>Expert fittings and recommendations for all types of contact lenses.</p>
+                </div>
+                <div class="service-card animated" style="animation-delay: 0.6s;">
+                    <i class="fas fa-medkit"></i>
+                    <h3>Eye Disease Management</h3>
+                    <p>Diagnosis and treatment for glaucoma, cataracts, macular degeneration, and more.</p>
+                </div>
+                <div class="service-card animated" style="animation-delay: 0.8s;">
+                    <i class="fas fa-child"></i>
+                    <h3>Pediatric Eye Care</h3>
+                    <p>Specialized eye exams and care for infants, children, and adolescents.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>Visionary Eye Care</h3>
+                <p>Your trusted partner for comprehensive eye health. We are dedicated to providing exceptional care with a personal touch.</p>
+                <div class="social-icons">
+                    <a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a>
+                    <a href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+                    <a href="javascript:void(0);"><i class="fab fa-instagram"></i></a>
+                    <a href="javascript:void(0);"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="faq.html">Patient Resources</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Optic Avenue, Vision City, VC 90210</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> info@visionaryeyecare.com</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 Visionary Eye Care. All rights reserved.
+        </div>
+    </footer>
+
+    <div class="accessibility-toggle" id="accessibilityToggle">
+        <i class="fas fa-universal-access"></i>
+    </div>
+
+    <div class="accessibility-panel" id="accessibilityPanel">
+        <button id="increaseFont">Increase Font Size</button>
+        <button id="decreaseFont">Decrease Font Size</button>
+        <button id="highContrast">High Contrast Mode</button>
+        <button id="resetAccessibility">Reset</button>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Global JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hamburger Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close nav menu when a link is clicked (for mobile)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            // Smooth scroll for anchor links (if any)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer for animations
+            const animatedElements = document.querySelectorAll('.animated');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        entry.target.style.opacity = '1';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Accessibility Toggle
+            const accessibilityToggle = document.getElementById('accessibilityToggle');
+            const accessibilityPanel = document.getElementById('accessibilityPanel');
+            const increaseFontBtn = document.getElementById('increaseFont');
+            const decreaseFontBtn = document.getElementById('decreaseFont');
+            const highContrastBtn = document.getElementById('highContrast');
+            const resetAccessibilityBtn = document.getElementById('resetAccessibility');
+            const body = document.body;
+
+            accessibilityToggle.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent click from bubbling to document and closing panel
+                accessibilityPanel.classList.toggle('active');
+            });
+
+            // Close panel if clicked outside
+            document.addEventListener('click', (event) => {
+                if (!accessibilityPanel.contains(event.target) && !accessibilityToggle.contains(event.target)) {
+                    accessibilityPanel.classList.remove('active');
+                }
+            });
+
+            let currentFontSize = 16; // Base font size
+            const fontStep = 2; // Pixels to increase/decrease
+
+            increaseFontBtn.addEventListener('click', () => {
+                currentFontSize += fontStep;
+                body.style.fontSize = `${currentFontSize}px`;
+            });
+
+            decreaseFontBtn.addEventListener('click', () => {
+                currentFontSize -= fontStep;
+                if (currentFontSize < 10) currentFontSize = 10; // Minimum font size
+                body.style.fontSize = `${currentFontSize}px`;
+            });
+
+            highContrastBtn.addEventListener('click', () => {
+                body.classList.toggle('high-contrast');
+            });
+
+            resetAccessibilityBtn.addEventListener('click', () => {
+                body.style.fontSize = ''; // Reset to default
+                body.classList.remove('high-contrast');
+                currentFontSize = 16; // Reset internal tracking
+            });
+        });
+    </script>
+</body>
+</html>
