@@ -10,7 +10,7 @@ then
     exit 1
 fi
 
-PORT=8000
+PORT=9000
 
 echo "Starting static file server on http://localhost:$PORT"
 echo "Press Ctrl+C to stop the server."
