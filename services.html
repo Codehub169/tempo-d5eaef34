@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visionary Eye Care - Our Doctors</title>
+    <title>Visionary Eye Care - Our Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Global CSS */
@@ -436,7 +436,7 @@
             background-color: #00ffff !important;
         }
 
-        /* Page Specific Styles for Doctors */
+        /* Page Specific Styles for Services */
         .page-hero {
             background: linear-gradient(rgba(0, 96, 100, 0.8), rgba(0, 96, 100, 0.8)), url('https://images.unsplash.com/photo-1576092224726-25807663d276?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
             color: var(--text-light);
@@ -476,15 +476,15 @@
             border-radius: 2px;
         }
 
-        .doctors-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
             padding-bottom: 4rem;
         }
 
-        .doctor-card {
+        .service-card {
             background-color: var(--text-light);
             padding: 2rem;
             border-radius: 10px;
@@ -493,33 +493,25 @@
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
         }
 
-        .doctor-card:hover {
+        .service-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-medium);
         }
 
-        .doctor-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
             margin-bottom: 1rem;
-            border: 4px solid var(--primary-color);
         }
 
-        .doctor-card h3 {
+        .service-card h3 {
             font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
-        .doctor-card p {
+        .service-card p {
             color: var(--secondary-color);
             font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .doctor-card .btn {
-            margin-top: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -535,13 +527,13 @@
             .section-title {
                 font-size: 2rem;
             }
-            .doctors-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
-            .doctor-card {
+            .service-card {
                 padding: 1.5rem;
             }
-            .doctor-card h3 {
+            .service-card h3 {
                 font-size: 1.6rem;
             }
         }
@@ -552,7 +544,7 @@
             .section-title {
                 font-size: 1.8rem;
             }
-            .doctor-card h3 {
+            .service-card h3 {
                 font-size: 1.4rem;
             }
         }
@@ -564,8 +556,8 @@
             <a href="index.html" class="logo">Visionary Eye Care</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="doctors.html" class="active">Our Doctors</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="doctors.html">Our Doctors</a></li>
                 <li><a href="appointment.html">Appointment</a></li>
                 <li><a href="faq.html">Resources</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
@@ -580,40 +572,42 @@
 
     <main>
         <section class="page-hero animated">
-            <h1>Meet Our Experienced Eye Doctors</h1>
-            <p>Our team of highly qualified ophthalmologists and optometrists are dedicated to providing exceptional eye care.</p>
+            <h1>Comprehensive Eye Care Services</h1>
+            <p>Discover the wide range of services we offer to protect and enhance your vision.</p>
         </section>
 
         <section class="container" style="padding-top: 4rem;">
-            <h2 class="section-title animated">Our Visionary Team</h2>
-            <div class="doctors-grid">
-                <div class="doctor-card animated" style="animation-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1612348316223-95689104b31a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. Emily White">
-                    <h3>Dr. Emily White, OD</h3>
-                    <p><strong>Optometrist</strong></p>
-                    <p>Specializing in comprehensive eye exams, contact lens fittings, and management of dry eye syndrome.</p>
-                    <a href="appointment.html" class="btn btn-primary">Book with Dr. White</a>
+            <h2 class="section-title animated">Our Core Services</h2>
+            <div class="services-grid">
+                <div class="service-card animated" style="animation-delay: 0.2s;">
+                    <i class="fas fa-glasses"></i>
+                    <h3>Comprehensive Eye Exams</h3>
+                    <p>Thorough evaluations to assess your vision and overall eye health, including prescriptions for glasses and contacts.</p>
                 </div>
-                <div class="doctor-card animated" style="animation-delay: 0.4s;">
-                    <img src="https://images.unsplash.com/photo-1622253692010-337f4ce4f6d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. David Chen">
-                    <h3>Dr. David Chen, MD</h3>
-                    <p><strong>Ophthalmologist</strong></p>
-                    <p>Expert in cataract surgery, glaucoma treatment, and advanced retinal conditions.</p>
-                    <a href="appointment.html" class="btn btn-primary">Book with Dr. Chen</a>
+                <div class="service-card animated" style="animation-delay: 0.4s;">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Advanced Diagnostic Testing</h3>
+                    <p>Utilizing cutting-edge technology to accurately diagnose and monitor various eye conditions.</p>
                 </div>
-                <div class="doctor-card animated" style="animation-delay: 0.6s;">
-                    <img src="https://images.unsplash.com/photo-1559839734-2b716b178f5e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. Sarah Jones">
-                    <h3>Dr. Sarah Jones, OD</h3>
-                    <p><strong>Pediatric Optometrist</strong></p>
-                    <p>Dedicated to children's eye health, myopia management, and vision therapy.</p>
-                    <a href="appointment.html" class="btn btn-primary">Book with Dr. Jones</a>
+                <div class="service-card animated" style="animation-delay: 0.6s;">
+                    <i class="fas fa-prescription-bottle"></i>
+                    <h3>Prescription Eyewear & Contacts</h3>
+                    <p>A wide selection of frames, lenses, and contact lens options tailored to your needs.</p>
                 </div>
-                <div class="doctor-card animated" style="animation-delay: 0.8s;">
-                    <img src="https://images.unsplash.com/photo-1537368910025-78dc5c6d6794?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. Robert Kim">
-                    <h3>Dr. Robert Kim, MD</h3>
-                    <p><strong>Ophthalmologist</strong></p>
-                    <p>Specializes in refractive surgery (LASIK, PRK), corneal diseases, and ocular surface disorders.</p>
-                    <a href="appointment.html" class="btn btn-primary">Book with Dr. Kim</a>
+                <div class="service-card animated" style="animation-delay: 0.8s;">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Specialized Eye Treatments</h3>
+                    <p>Expert care for conditions like glaucoma, cataracts, dry eyes, and diabetic retinopathy.</p>
+                </div>
+                <div class="service-card animated" style="animation-delay: 1.0s;">
+                    <i class="fas fa-child"></i>
+                    <h3>Pediatric Eye Care</h3>
+                    <p>Gentle and effective eye exams for children of all ages to ensure healthy visual development.</p>
+                </div>
+                <div class="service-card animated" style="animation-delay: 1.2s;">
+                    <i class="fas fa-first-aid"></i>
+                    <h3>Emergency Eye Care</h3>
+                    <p>Prompt attention for acute eye injuries, infections, or sudden vision changes.</p>
                 </div>
             </div>
         </section>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visionary Eye Care - Our Doctors</title>
+    <title>Visionary Eye Care - Book Appointment</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Global CSS */
@@ -436,9 +436,9 @@
             background-color: #00ffff !important;
         }
 
-        /* Page Specific Styles for Doctors */
+        /* Page Specific Styles for Appointments */
         .page-hero {
-            background: linear-gradient(rgba(0, 96, 100, 0.8), rgba(0, 96, 100, 0.8)), url('https://images.unsplash.com/photo-1576092224726-25807663d276?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 96, 100, 0.8), rgba(0, 96, 100, 0.8)), url('https://images.unsplash.com/photo-1588780365110-df703277741d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
             color: var(--text-light);
             text-align: center;
             padding: 6rem 2rem;
@@ -476,50 +476,148 @@
             border-radius: 2px;
         }
 
-        .doctors-grid {
+        .appointment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
-            padding-bottom: 4rem;
+            margin-bottom: 4rem;
         }
 
-        .doctor-card {
+        .appointment-info-card {
             background-color: var(--text-light);
             padding: 2rem;
             border-radius: 10px;
             box-shadow: var(--shadow-light);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
         }
 
-        .doctor-card:hover {
+        .appointment-info-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-medium);
         }
 
-        .doctor-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+        .appointment-info-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
             margin-bottom: 1rem;
-            border: 4px solid var(--primary-color);
         }
 
-        .doctor-card h3 {
+        .appointment-info-card h3 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
         }
 
-        .doctor-card p {
+        .appointment-info-card p {
+            font-size: 1rem;
             color: var(--secondary-color);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
+            line-height: 1.5;
         }
 
-        .doctor-card .btn {
-            margin-top: 1rem;
+        .appointment-form-section {
+            background-color: var(--text-light);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-light);
+            max-width: 800px;
+            margin: 4rem auto;
+        }
+
+        .appointment-form-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .appointment-form-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group input[type="time"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--text-dark);
+            box-sizing: border-box;
+            transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 96, 100, 0.25);
+            outline: none;
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #dc3545; /* Red for error */
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .submit-btn-container {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        .confirmation-message {
+            background-color: #d4edda; /* Light green */
+            color: #155724; /* Dark green */
+            border: 1px solid #c3e6cb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
         }
 
         @media (max-width: 768px) {
@@ -535,14 +633,21 @@
             .section-title {
                 font-size: 2rem;
             }
-            .doctors-grid {
+            .appointment-grid {
                 grid-template-columns: 1fr;
             }
-            .doctor-card {
+            .appointment-info-card {
                 padding: 1.5rem;
             }
-            .doctor-card h3 {
-                font-size: 1.6rem;
+            .appointment-info-card h3 {
+                font-size: 1.5rem;
+            }
+            .appointment-form-section {
+                padding: 2rem;
+                margin: 2rem auto;
+            }
+            .appointment-form-section h2 {
+                font-size: 2rem;
             }
         }
         @media (max-width: 480px) {
@@ -552,8 +657,21 @@
             .section-title {
                 font-size: 1.8rem;
             }
-            .doctor-card h3 {
-                font-size: 1.4rem;
+            .appointment-info-card h3 {
+                font-size: 1.3rem;
+            }
+            .appointment-form-section h2 {
+                font-size: 1.8rem;
+            }
+            .form-group label,
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 0.95rem;
+            }
+            .confirmation-message {
+                font-size: 1rem;
+                padding: 1rem;
             }
         }
     </style>
@@ -565,8 +683,8 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="doctors.html" class="active">Our Doctors</a></li>
-                <li><a href="appointment.html">Appointment</a></li>
+                <li><a href="doctors.html">Our Doctors</a></li>
+                <li><a href="appointment.html" class="active">Appointment</a></li>
                 <li><a href="faq.html">Resources</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
@@ -580,41 +698,84 @@
 
     <main>
         <section class="page-hero animated">
-            <h1>Meet Our Experienced Eye Doctors</h1>
-            <p>Our team of highly qualified ophthalmologists and optometrists are dedicated to providing exceptional eye care.</p>
+            <h1>Book Your Eye Care Appointment</h1>
+            <p>Schedule your visit with Visionary Eye Care today for personalized and professional eye health services.</p>
         </section>
 
         <section class="container" style="padding-top: 4rem;">
-            <h2 class="section-title animated">Our Visionary Team</h2>
-            <div class="doctors-grid">
-                <div class="doctor-card animated" style="animation-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1612348316223-95689104b31a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. Emily White">
-                    <h3>Dr. Emily White, OD</h3>
-                    <p><strong>Optometrist</strong></p>
-                    <p>Specializing in comprehensive eye exams, contact lens fittings, and management of dry eye syndrome.</p>
-                    <a href="appointment.html" class="btn btn-primary">Book with Dr. White</a>
+            <h2 class="section-title animated">Appointment Information</h2>
+            <div class="appointment-grid">
+                <div class="appointment-info-card animated" style="animation-delay: 0.2s;">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Schedule Online</h3>
+                    <p>Use our convenient online form to book your preferred appointment time.</p>
                 </div>
-                <div class="doctor-card animated" style="animation-delay: 0.4s;">
-                    <img src="https://images.unsplash.com/photo-1622253692010-337f4ce4f6d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. David Chen">
-                    <h3>Dr. David Chen, MD</h3>
-                    <p><strong>Ophthalmologist</strong></p>
-                    <p>Expert in cataract surgery, glaucoma treatment, and advanced retinal conditions.</p>
-                    <a href="appointment.html" class="btn btn-primary">Book with Dr. Chen</a>
+                <div class="appointment-info-card animated" style="animation-delay: 0.4s;">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us to Book</h3>
+                    <p>Phone: <a href="tel:+11234567890">(123) 456-7890</a></p>
+                    <p>Our friendly staff is ready to assist you.</p>
                 </div>
-                <div class="doctor-card animated" style="animation-delay: 0.6s;">
-                    <img src="https://images.unsplash.com/photo-1559839734-2b716b178f5e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. Sarah Jones">
-                    <h3>Dr. Sarah Jones, OD</h3>
-                    <p><strong>Pediatric Optometrist</strong></p>
-                    <p>Dedicated to children's eye health, myopia management, and vision therapy.</p>
-                    <a href="appointment.html" class="btn btn-primary">Book with Dr. Jones</a>
+                <div class="appointment-info-card animated" style="animation-delay: 0.6s;">
+                    <i class="fas fa-clock"></i>
+                    <h3>Office Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p>Saturday & Sunday: Closed</p>
                 </div>
-                <div class="doctor-card animated" style="animation-delay: 0.8s;">
-                    <img src="https://images.unsplash.com/photo-1537368910025-78dc5c6d6794?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. Robert Kim">
-                    <h3>Dr. Robert Kim, MD</h3>
-                    <p><strong>Ophthalmologist</strong></p>
-                    <p>Specializes in refractive surgery (LASIK, PRK), corneal diseases, and ocular surface disorders.</p>
-                    <a href="appointment.html" class="btn btn-primary">Book with Dr. Kim</a>
+                <div class="appointment-info-card animated" style="animation-delay: 0.8s;">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Patient Forms</h3>
+                    <p>Save time by downloading and filling out patient forms before your visit.</p>
+                    <a href="faq.html#patient-forms">Download Forms <i class="fas fa-download"></i></a>
                 </div>
+            </div>
+        </section>
+
+        <section class="appointment-form-section animated">
+            <h2>Book Your Appointment</h2>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="patientName">Your Full Name</label>
+                    <input type="text" id="patientName" name="patientName" placeholder="John Doe" required>
+                    <div class="error-message">Please enter your full name.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="patientEmail">Email Address</label>
+                    <input type="email" id="patientEmail" name="patientEmail" placeholder="john.doe@example.com" required>
+                    <div class="error-message">Please enter a valid email address.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="patientPhone">Phone Number</label>
+                    <input type="tel" id="patientPhone" name="patientPhone" placeholder="(123) 456-7890" required>
+                    <div class="error-message">Please enter your phone number.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="preferredDate">Preferred Date</label>
+                    <input type="date" id="preferredDate" name="preferredDate" required>
+                    <div class="error-message">Please select a preferred date.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="preferredTime">Preferred Time</label>
+                    <input type="time" id="preferredTime" name="preferredTime" required>
+                    <div class="error-message">Please select a preferred time.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="reasonForVisit">Reason for Visit</label>
+                    <textarea id="reasonForVisit" name="reasonForVisit" placeholder="Routine eye exam, follow-up, new glasses, etc." required></textarea>
+                    <div class="error-message">Please describe the reason for your visit.</div>
+                </div>
+
+                <div class="submit-btn-container">
+                    <button type="submit" class="btn btn-primary">Submit Appointment Request</button>
+                </div>
+            </form>
+            <div id="confirmationMessage" class="confirmation-message">
+                Thank you for your appointment request! We will contact you shortly to confirm the details.
             </div>
         </section>
 
@@ -769,6 +930,51 @@
                 body.style.fontSize = ''; // Reset to default
                 body.classList.remove('high-contrast');
                 currentFontSize = 16; // Reset internal tracking
+            });
+
+            // Page Specific JavaScript for Appointment Page
+            const appointmentForm = document.getElementById('appointmentForm');
+            const confirmationMessage = document.getElementById('confirmationMessage');
+
+            appointmentForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent actual form submission
+
+                let isValid = true;
+                const formGroups = appointmentForm.querySelectorAll('.form-group');
+
+                formGroups.forEach(group => {
+                    const input = group.querySelector('input, textarea, select');
+                    const errorMessage = group.querySelector('.error-message');
+
+                    // Reset error state
+                    group.classList.remove('error');
+                    if (errorMessage) errorMessage.style.display = 'none';
+
+                    if (input && input.hasAttribute('required')) {
+                        if (input.type === 'email' && !/^[^
+@]+@[^
+@]+\.[^
+@]+$/.test(input.value)) {
+                            isValid = false;
+                            group.classList.add('error');
+                            if (errorMessage) errorMessage.style.display = 'block';
+                        } else if (!input.value.trim()) {
+                            isValid = false;
+                            group.classList.add('error');
+                            if (errorMessage) errorMessage.style.display = 'block';
+                        }
+                    }
+                });
+
+                if (isValid) {
+                    // Simulate successful submission
+                    appointmentForm.reset(); // Clear form fields
+                    confirmationMessage.style.display = 'block'; // Show confirmation
+                    // Optionally hide after a few seconds
+                    setTimeout(() => {
+                        confirmationMessage.style.display = 'none';
+                    }, 5000);
+                }
             });
         });
     </script>
