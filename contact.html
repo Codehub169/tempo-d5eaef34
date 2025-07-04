@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionary Eye Care - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Global CSS */
+        :root {
+            --primary-color: #0F4C81; /* Deep Ocean Blue */
+            --secondary-color: #6C757D; /* Standard Grey */
+            --accent-color: #2E8B57; /* Sea Green for CTAs/Success */
+            --background-light: #F8F9FA; /* Off-white */
+            --text-dark: #333333; /* Dark Charcoal */
+            --text-light: #FFFFFF;
+            --border-color: #DDE4E9; /* Lighter, subtle border */
+            --shadow-light: rgba(15, 76, 129, 0.08); /* Shadow tinted with primary */
+            --shadow-medium: rgba(15, 76, 129, 0.15);
+            --shadow-strong: rgba(15, 76, 129, 0.25);
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+            font-size: 16px; /* Base font size for accessibility */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; }
+        h3 { font-size: 2.2rem; }
+        h4 { font-size: 1.8rem; }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color var(--transition-speed) ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all var(--transition-speed) ease;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--text-light);
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: width var(--transition-speed) ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: var(--primary-color);
+            margin-bottom: 4px;
+            border-radius: 5px;
+            transition: all var(--transition-speed) ease;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: left;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animated {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0; /* Hidden by default, will be revealed by JS */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.4rem; }
+            h3 { font-size: 1.9rem; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--text-light);
+                position: absolute;
+                top: 80px; /* Adjust based on header height */
+                left: 0;
+                padding: 1rem 0;
+                box-shadow: var(--shadow-medium);
+                border-top: 1px solid var(--border-color);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 1rem;
+                display: block;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section {
+                min-width: unset;
+                width: 100%;
+            }
+
+            .social-icons {
+                margin-top: 1rem;
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.7rem; }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Accessibility Toggle */
+        .accessibility-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-medium);
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .accessibility-toggle:hover {
+            background-color: var(--accent-color);
+        }
+
+        .accessibility-panel {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: var(--text-light);
+            border-radius: 8px;
+            box-shadow: var(--shadow-medium);
+            padding: 1rem;
+            z-index: 1000;
+            flex-direction: column;
+            gap: 0.8rem;
+            min-width: 200px;
+        }
+
+        .accessibility-panel.active {
+            display: flex;
+        }
+
+        .accessibility-panel button {
+            background-color: var(--background-light);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .accessibility-panel button:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        /* High Contrast Mode */
+        body.high-contrast {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+        body.high-contrast h1, body.high-contrast h2, body.high-contrast h3, body.high-contrast h4, body.high-contrast h5, body.high-contrast h6, body.high-contrast .logo {
+            color: #ffff00 !important; /* Bright yellow for contrast */
+        }
+        body.high-contrast a, body.high-contrast .btn-secondary {
+            color: #00ffff !important; /* Cyan for links */
+            border-color: #00ffff !important;
+        }
+        body.high-contrast header, body.high-contrast .accessibility-panel {
+            background-color: #333 !important;
+            box-shadow: none !important;
+            border-color: #666 !important;
+        }
+        body.high-contrast .btn-primary {
+            background-color: #00ffff !important;
+            color: #000 !important;
+            border-color: #00ffff !n
+            important;
+        }
+        body.high-contrast .btn-primary:hover {
+            background-color: transparent !important;
+            color: #00ffff !important;
+        }
+        body.high-contrast .accessibility-panel button {
+            background-color: #555 !important;
+            color: #fff !important;
+            border-color: #888 !important;
+        }
+        body.high-contrast .accessibility-panel button:hover {
+            background-color: #00ffff !important;
+            color: #000 !important;
+        }
+        body.high-contrast footer {
+            background-color: #222 !important;
+            border-top-color: #555 !important;
+        }
+        body.high-contrast .nav-links a::after {
+            background-color: #00ffff !important;
+        }
+
+        /* Page Specific Styles for Contact Us */
+        .page-hero {
+            background: linear-gradient(rgba(15, 76, 129, 0.8), rgba(15, 76, 129, 0.8)), url('https://images.unsplash.com/photo-1549490212-f0451a44c9b9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .page-hero h1 {
+            color: var(--text-light);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-info-card {
+            background-color: var(--text-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-info-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-card p {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            line-height: 1.5;
+        }
+
+        .contact-form-section {
+            background-color: var(--text-light);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-light);
+            max-width: 800px;
+            margin: 4rem auto;
+        }
+
+        .contact-form-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .contact-form-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--text-dark);
+            box-sizing: border-box;
+            transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.25);
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #dc3545; /* Red for error */
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .submit-btn-container {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        .confirmation-message {
+            background-color: #d4edda; /* Light green */
+            color: #155724; /* Dark green */
+            border: 1px solid #c3e6cb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow-medium);
+            margin-top: 4rem;
+            background-color: var(--text-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .social-media-section {
+            text-align: center;
+            margin-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .social-media-section .social-icons-large a {
+            font-size: 2.5rem;
+            margin: 0 15px;
+            color: var(--primary-color);
+            transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+        }
+
+        .social-media-section .social-icons-large a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 4rem 1.5rem;
+            }
+            .page-hero h1 {
+                font-size: 2.8rem;
+            }
+            .page-hero p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info-card {
+                padding: 1.5rem;
+            }
+            .contact-info-card h3 {
+                font-size: 1.5rem;
+            }
+            .contact-form-section {
+                padding: 2rem;
+                margin: 2rem auto;
+            }
+            .contact-form-section h2 {
+                font-size: 2rem;
+            }
+            .social-media-section .social-icons-large a {
+                font-size: 2rem;
+                margin: 0 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .contact-info-card h3 {
+                font-size: 1.3rem;
+            }
+            .contact-form-section h2 {
+                font-size: 1.8rem;
+            }
+            .form-group label,
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 0.95rem;
+            }
+            .confirmation-message {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Visionary Eye Care</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Our Doctors</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+                <li><a href="faq.html">Resources</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero animated">
+            <h1>Get in Touch with Visionary Eye Care</h1>
+            <p>We're here to answer your questions and assist you with your eye care needs. Reach out to us today!</p>
+        </section>
+
+        <section class="container" style="padding-top: 4rem;">
+            <h2 class="section-title animated">Our Contact Information</h2>
+            <div class="contact-grid">
+                <div class="contact-info-card animated" style="animation-delay: 0.2s;">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Our Location</h3>
+                    <p>123 Optic Avenue, Vision City, VC 90210</p>
+                    <p>Proudly serving the Vision City community.</p>
+                </div>
+                <div class="contact-info-card animated" style="animation-delay: 0.4s;">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us</h3>
+                    <p>Phone: <a href="tel:+11234567890">(123) 456-7890</a></p>
+                    <p>Fax: (123) 456-7891</p>
+                </div>
+                <div class="contact-info-card animated" style="animation-delay: 0.6s;">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>General Inquiries: <a href="mailto:info@visionaryeyecare.com">info@visionaryeyecare.com</a></p>
+                    <p>Appointments: <a href="mailto:appointments@visionaryeyecare.com">appointments@visionaryeyecare.com</a></p>
+                </div>
+                <div class="contact-info-card animated" style="animation-delay: 0.8s;">
+                    <i class="fas fa-clock"></i>
+                    <h3>Office Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p>Saturday & Sunday: Closed</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form-section animated">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="fullName">Your Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                    <div class="error-message">Please enter your full name.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+                    <div class="error-message">Please enter a valid email address.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Inquiry about services" required>
+                    <div class="error-message">Please enter a subject.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                    <div class="error-message">Please enter your message.</div>
+                </div>
+
+                <div class="submit-btn-container">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+            <div id="confirmationMessage" class="confirmation-message">
+                Thank you for your message! We will get back to you shortly.
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title animated">Find Us on the Map</h2>
+            <div class="map-container animated">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.298288544837!2d-122.4194156846813!3d37.77492977975932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858088f11001e1%3A0x6b772c6e6b772c6e!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1678901234567!5m2!1sen!2sus"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <section class="social-media-section container animated">
+            <h2 class="section-title">Connect With Us</h2>
+            <div class="social-icons-large">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>Visionary Eye Care</h3>
+                <p>Your trusted partner for comprehensive eye health. We are dedicated to providing exceptional care with a personal touch.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="faq.html">Patient Resources</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Optic Avenue, Vision City, VC 90210</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> info@visionaryeyecare.com</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 Visionary Eye Care. All rights reserved.
+        </div>
+    </footer>
+
+    <div class="accessibility-toggle" id="accessibilityToggle">
+        <i class="fas fa-universal-access"></i>
+    </div>
+
+    <div class="accessibility-panel" id="accessibilityPanel">
+        <button id="increaseFont">Increase Font Size</button>
+        <button id="decreaseFont">Decrease Font Size</button>
+        <button id="highContrast">High Contrast Mode</button>
+        <button id="resetAccessibility">Reset</button>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Replace with actual Font Awesome Kit or CDN -->
+    <script>
+        // Global JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hamburger Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close nav menu when a link is clicked (for mobile)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            // Smooth scroll for anchor links (if any)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer for animations
+            const animatedElements = document.querySelectorAll('.animated');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        entry.target.style.opacity = '1';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Accessibility Toggle
+            const accessibilityToggle = document.getElementById('accessibilityToggle');
+            const accessibilityPanel = document.getElementById('accessibilityPanel');
+            const increaseFontBtn = document.getElementById('increaseFont');
+            const decreaseFontBtn = document.getElementById('decreaseFont');
+            const highContrastBtn = document.getElementById('highContrast');
+            const resetAccessibilityBtn = document.getElementById('resetAccessibility');
+            const body = document.body;
+
+            accessibilityToggle.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent click from bubbling to document and closing panel
+                accessibilityPanel.classList.toggle('active');
+            });
+
+            // Close panel if clicked outside
+            document.addEventListener('click', (event) => {
+                if (!accessibilityPanel.contains(event.target) && !accessibilityToggle.contains(event.target)) {
+                    accessibilityPanel.classList.remove('active');
+                }
+            });
+
+            let currentFontSize = 16; // Base font size
+            const fontStep = 2; // Pixels to increase/decrease
+
+            increaseFontBtn.addEventListener('click', () => {
+                currentFontSize += fontStep;
+                body.style.fontSize = `${currentFontSize}px`;
+            });
+
+            decreaseFontBtn.addEventListener('click', () => {
+                currentFontSize -= fontStep;
+                if (currentFontSize < 10) currentFontSize = 10; // Minimum font size
+                body.style.fontSize = `${currentFontSize}px`;
+            });
+
+            highContrastBtn.addEventListener('click', () => {
+                body.classList.toggle('high-contrast');
+            });
+
+            resetAccessibilityBtn.addEventListener('click', () => {
+                body.style.fontSize = ''; // Reset to default
+                body.classList.remove('high-contrast');
+                currentFontSize = 16; // Reset internal tracking
+            });
+
+            // Page Specific JavaScript for Contact Page
+            const contactForm = document.getElementById('contactForm');
+            const confirmationMessage = document.getElementById('confirmationMessage');
+
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent actual form submission
+
+                let isValid = true;
+                const formGroups = contactForm.querySelectorAll('.form-group');
+
+                formGroups.forEach(group => {
+                    const input = group.querySelector('input, textarea');
+                    const errorMessage = group.querySelector('.error-message');
+
+                    // Reset error state
+                    group.classList.remove('error');
+                    if (errorMessage) errorMessage.style.display = 'none';
+
+                    if (input && input.hasAttribute('required')) {
+                        if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+                            isValid = false;
+                            group.classList.add('error');
+                            if (errorMessage) errorMessage.style.display = 'block';
+                        } else if (!input.value.trim()) {
+                            isValid = false;
+                            group.classList.add('error');
+                            if (errorMessage) errorMessage.style.display = 'block';
+                        }
+                    }
+                });
+
+                if (isValid) {
+                    // Simulate successful submission
+                    contactForm.reset(); // Clear form fields
+                    confirmationMessage.style.display = 'block'; // Show confirmation
+                    // Optionally hide after a few seconds
+                    setTimeout(() => {
+                        confirmationMessage.style.display = 'none';
+                    }, 5000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
